@@ -5,7 +5,6 @@ from sklearn.metrics import *
 from sklearn.utils.validation import check_is_fitted
 from lightgbm import LGBMClassifier
 from joblib import Parallel, delayed
-from lightgbm import LGBMClassifier 
 import numpy as np
 
 class SplitVotingEnsemble(BaseEstimator, ClassifierMixin):
