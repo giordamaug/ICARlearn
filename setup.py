@@ -1,7 +1,6 @@
 from setuptools import setup
 
 setup(
-#   name='help',
    name='ICARlearn',
    version='1.0',
    author='Maurizio Giordano and Ilaria Granata',
