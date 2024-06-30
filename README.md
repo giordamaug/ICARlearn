@@ -1,5 +1,5 @@
 # icarlearn
- Machine learning methods developed at ICAR-CNR
+Machine learning methods developed by Computational Data Science group at ICAR-CNR
 
 # Documentation
 The HELP software documentation is available at: https://giordamaug.github.io/myprojects/ICARlearn/
