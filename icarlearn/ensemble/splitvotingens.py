@@ -533,7 +533,7 @@ class sveRF(SplittingVotingEnsemble):
         print(clf)
         self.base_estimator = clf
 
-class sveAB(SplittingVotingEnsemble):
+class sveADA(SplittingVotingEnsemble):
     def __init__(self, n_voters:int=-1, voting:str='soft', n_jobs:int=-1, verbose:bool=False, split_seed:int=42, **kw):
         clf = AdaBoostClassifier(**kw)
         super().__init__(clf, n_voters=n_voters, voting=voting, n_jobs=n_jobs, 
