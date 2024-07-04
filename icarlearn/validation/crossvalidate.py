@@ -31,13 +31,15 @@ def evaluate_fold(train_x, train_y, test_x, test_y, estimator, indices, test_ind
                   predictions, probabilities, fold, scorer=scorer):
     # Initialize classifier
     clf = clone(estimator)
+    clf.base_estimator = estimator.base_estimator
+    #print(clf.base_estimator)
     clf.fit(train_x, train_y)
     probs = clf.predict_proba(test_x)
     preds = clf.predict(test_x)
+    cm = confusion_matrix(test_y, preds)
     #preds = clf.classes_[np.argmax(probs, axis=1)]
     indices = np.concatenate((indices, test_indices))
     targets = np.concatenate((targets, test_y))
-    cm = confusion_matrix(test_y, preds)
     predictions = np.concatenate((predictions, preds))
     probabilities = np.concatenate((probabilities, probs[:, 0]))
 
@@ -49,6 +51,7 @@ def evaluate_fold(train_x, train_y, test_x, test_y, estimator, indices, test_ind
             metrics[key] = metric(test_y, probs[:, 1], **kwargs) if len(clf.classes_) == 2 else metric(test_y, probs, **kwargs)
         else:
             metrics[key] = metric(test_y, preds, **kwargs)
+    metrics['cm'] = cm
     return indices, targets, predictions, probabilities, metrics
     
 def skfold_cv(X, Y, estimator, n_splits=10, scorer=scorer, verbose: bool = False, show_progress: bool = False, seed: int = 42, precision:int=3):
@@ -115,12 +118,14 @@ def skfold_cv(X, Y, estimator, n_splits=10, scorer=scorer, verbose: bool = False
         indices, targets, predictions, probabilities, metrics = evaluate_fold(X_train, y_train, X[test_idx], y[test_idx], 
                                                                             estimator, indices, all_indices[test_idx], targets, 
                                                                             predictions, probabilities, fold, scorer)
-        scores = pd.concat([scores, pd.DataFrame.from_dict(metrics, orient='index').T.set_index('index')], axis=0)
+        dfs = pd.DataFrame.from_dict(metrics, orient='index').T.set_index('index')
+        scores = pd.concat([scores, dfs], axis=0)
 
     # Calculate mean and standard deviation of evaluation metrics
     fmt = '{:.%df}' % precision
-    df_scores = pd.DataFrame([f"{fmt.format(val)}±{fmt.format(err)}" for val, err in zip(scores.mean(axis=0).values,
-                                                                     scores.std(axis=0))],
+    df_scores = pd.DataFrame([f'{fmt.format(val)}±{fmt.format(err)}' for val, err in zip(scores.loc[:, scores.columns != "cm"].mean(axis=0).values,
+                                                                     scores.loc[:, scores.columns != "cm"].std(axis=0))] +
+                             [(scores[['cm']].sum()).values[0].tolist()],
                              columns=['measure'], index=scores.columns)
 
     # Create DataFrame for storing detailed predictions
