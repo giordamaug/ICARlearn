@@ -3,7 +3,8 @@ from sklearn.base import is_classifier, clone, BaseEstimator, ClassifierMixin
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import *
 from sklearn.utils.validation import check_is_fitted
-from sklearn.ensemble import RandomForestClassifier,AdaBoostClassifier, ExtraTreeClassifier
+from sklearn.ensemble import RandomForestClassifier,AdaBoostClassifier
+from sklearn.tree import ExtraTreeClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from lightgbm import LGBMClassifier
 from xgboost import XGBClassifier
