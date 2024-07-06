@@ -3,7 +3,7 @@ from sklearn.base import is_classifier, clone, BaseEstimator, ClassifierMixin
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import *
 from sklearn.utils.validation import check_is_fitted
-from sklearn.ensemble import RandomForestClassifier,AdaBoostClassifier
+from sklearn.ensemble import RandomForestClassifier,AdaBoostClassifier, ExtraTreeClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from lightgbm import LGBMClassifier
 from xgboost import XGBClassifier
@@ -583,6 +583,15 @@ class sveLGBM(SplittingVotingEnsemble):
 class sveXGB(SplittingVotingEnsemble):
     def __init__(self, n_voters:int=-1, voting:str='soft', n_jobs:int=-1, verbose:bool=False, split_seed:int=42, **kw):
         clf = XGBClassifier(**kw)
+        super().__init__(clf, n_voters=n_voters, voting=voting, n_jobs=n_jobs, 
+                                                  verbose=verbose, split_seed=split_seed)
+        for k,v in kw.items():
+            setattr( self, k, v )
+        self.base_estimator = clf
+
+class sveET(SplittingVotingEnsemble):
+    def __init__(self, n_voters:int=-1, voting:str='soft', n_jobs:int=-1, verbose:bool=False, split_seed:int=42, **kw):
+        clf = ExtraTreeClassifier(**kw)
         super().__init__(clf, n_voters=n_voters, voting=voting, n_jobs=n_jobs, 
                                                   verbose=verbose, split_seed=split_seed)
         for k,v in kw.items():
