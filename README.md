@@ -6,8 +6,9 @@ The HELP software documentation is available at: https://giordamaug.github.io/my
 
 The Splitting Voting Ensemble meta-model (SVE) was designed to address classification task on unbalanced machine learning datasets.
 
-<img src="/images/softvoting_tr.pn" width="200" height="200" />
-<img src="/images/softvoting_ts.pn" width="200" height="200" />
+<img src="https://github.com/giordamaug/ICARlearn/blob/main/images/softvoting_tr.png" width="300" />
+
+<img src="https://github.com/giordamaug/ICARlearn/blob/main/images/softvoting_ts.png" width="400" />
 
 
 # Credits
