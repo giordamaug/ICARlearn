@@ -4,6 +4,10 @@ Machine learning methods developed by the Computational Data Science group at IC
 # Documentation
 The HELP software documentation is available at: https://giordamaug.github.io/myprojects/ICARlearn/
 
+The Splitting Voting Ensemble meta-model (SVE) was designed to address classification task on unbalanced machine learning datasets.
+
+![Image description](/images/picture.jpg)
+
 # Credits
 The HELP Framework was developed by the Computational Data Science group of High Performance Computing and Networking Institute of National Research Council of Italy (ICAR-CNR).
 
