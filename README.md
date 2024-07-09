@@ -23,14 +23,15 @@ The number $n$ of classifiers is automatically determined by the algorithm accor
 
 
 # Credits
-The HELP Framework was developed by the Computational Data Science group of High Performance Computing and Networking Institute of National Research Council of Italy (ICAR-CNR).
+The ICARlearn package was developed by the Computational Data Science group of High Performance Computing and Networking Institute of National Research Council of Italy (ICAR-CNR).
+This software is released under the GNU Licence (v.3) 
 
 # Cite
 If you use want to reference this software, please use the DOI: doi/10.5281/zenodo.10964743 
 
-[![DOI](https://zenodo.org/badge/753478555.svg)](https://zenodo.org/doi/10.5281/zenodo.10964743)
+[![DOI](https://zenodo.org/badge/821813810.svg)](https://zenodo.org/doi/10.5281/zenodo.12598244)
 
-If you want to cite the work in which this software is first used and described, 
+If you want to cite the work in which this software was first used and described, 
 please cite the following article:
 
 ```
