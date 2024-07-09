@@ -12,12 +12,14 @@ SVE can be considered a meta-learning algorithm since it uses another learning m
 This algorithm was designed and developed to address binary and multiclass classification tasks in data domains characterized by strong unbalancing of classes, such as Cybersecurity, Bionformatics, etc.
 
 Before training, the method partitions the set of majority class samples into $n$ parts, and it trains each classifier on a subset of training data composed of one of these parts along with the entire set of minority class training samples. 
+In multiclass scenarios, the partition ratio considered is that between the samples of the majority class and the second majority class: only the samples of the majority classs are partitioned, and each partition associated with a duplicate of the samples of the remaining classes.
+
 <img src="https://github.com/giordamaug/ICARlearn/blob/main/images/softvoting_tr.png" width="300" />
 
 During testing on unseen data, each classifier of the ensemble produces a probability for the label prediction; we compute the final probability response of the ensemble as the average of the probabilities of the n voting classifiers. 
-<img src="https://github.com/giordamaug/ICARlearn/blob/main/images/softvoting_ts.png" width="400" />
-
 The number $n$ of classifiers is automatically determined by the algorithm according to the class distribution in training data, or user-specified as an input paramter (``n_voters'').
+
+<img src="https://github.com/giordamaug/ICARlearn/blob/main/images/softvoting_ts.png" width="400" />
 
 
 # Credits
