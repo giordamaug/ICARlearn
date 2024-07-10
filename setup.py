@@ -12,11 +12,9 @@ setup(
    install_requires=[
        "numpy",
        "tqdm",
-       "typing",
        "pandas",
-       "matplotlib",
        "scikit-learn",
-       "scipy",
+       "xgboost",
        "lightgbm"
    ],
 )
