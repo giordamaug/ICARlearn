@@ -1,4 +1,4 @@
-# ICARlearn
+# SVElearn
 Machine learning methods for unbalanced datasets
 
 ## Authors
