@@ -1,8 +1,13 @@
 # ICARlearn
-Machine learning methods developed by the Computational Data Science group at ICAR-CNR
+Machine learning methods for unbalanced datasets
+
+## Authors
+- [Maurizio Giordano](https://orcid.org/0000-0001-9917-7591)
+- High Performance Computing and Networking (ICAR), Italian National Council of Research (CNR)
+- [Ilaria Granata](https://orcid.org/0000-0002-3450-4667)
 
 # Documentation
-This package is a library of machine learning methods developed by the CDS group at ICAR-CNR.
+This package is a library of machine learning methods developed by ICAR-CNR for efficient prediction models in unbalanced data domains.
 
 ## The Splitting Voting Ensemble
 
