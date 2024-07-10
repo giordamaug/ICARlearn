@@ -18,16 +18,16 @@ This algorithm was designed and developed to address binary and multiclass class
 Before training, the method partitions the set of majority class samples into $n$ parts, and it trains each classifier on a subset of training data composed of one of these parts along with the entire set of minority class training samples. 
 In multiclass scenarios, the partition ratio considered is that between the samples of the majority class and the second majority class: only the samples of the majority classs are partitioned, and each partition associated with a duplicate of the samples of the remaining classes.
 
-<img src="https://github.com/giordamaug/ICARlearn/blob/main/images/softvoting_tr.png" width="300" />
+<img src="https://github.com/giordamaug/SVElearn/blob/main/images/softvoting_tr.png" width="300" />
 
 During testing on unseen data, each classifier of the ensemble produces a probability for the label prediction; we compute the final probability response of the ensemble as the average of the probabilities of the n voting classifiers. 
 The number $n$ of classifiers is automatically determined by the algorithm according to the class distribution in training data, or user-specified as an input paramter (``n_voters'').
 
-<img src="https://github.com/giordamaug/ICARlearn/blob/main/images/softvoting_ts.png" width="400" />
+<img src="https://github.com/giordamaug/SVElearn/blob/main/images/softvoting_ts.png" width="400" />
 
 
 # Credits
-The ICARlearn package was developed by the Computational Data Science group of High Performance Computing and Networking Institute of National Research Council of Italy (ICAR-CNR).
+The SVElearn package was developed by High Performance Computing and Networking Institute of National Research Council of Italy (ICAR-CNR).
 This software is released under the GNU Licence (v.3) 
 
 # Cite
